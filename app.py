@@ -7,13 +7,27 @@ from flask import render_template
 
 app = Flask(__name__)
 
-with open(os.path.join('data', 'nouns.csv'), newline='') as f:
-    reader = csv.reader(f)
-    nouns = [n[0] for n in list(reader)]
 
-with open(os.path.join('data', 'verbs.csv'), newline='') as f:
-    reader = csv.reader(f)
-    verbs = [v[0] for v in list(reader)]
+def word_list_from_file(filepath) -> list:
+
+    with open(filepath, newline='') as f:
+        reader = csv.reader(f)
+        words = [w[0] for w in list(reader)]
+    return words
+
+
+nouns = word_list_from_file(os.path.join('data', 'nouns.csv'))
+verbs = word_list_from_file(os.path.join('data', 'verbs.csv'))
+adjectives = word_list_from_file(os.path.join('data', 'adjectives.csv'))
+
+#
+# with open(os.path.join('data', 'verbs.csv'), newline='') as f:
+#     reader = csv.reader(f)
+#     verbs = [v[0] for v in list(reader)]
+#
+# with open(os.path.join('data', 'adjectives.csv'), newline='') as f:
+#     reader = csv.reader(f)
+#     verbs = [v[0] for v in list(reader)]
 
 
 @app.route("/")
@@ -31,7 +45,9 @@ def hello_world():
         f'Why does the {subject_1} {verb_1} while the {subject_2} {verb_2}s?',
         f'Can a {subject_1} {verb_1}?',
         f'Is {verb_1}ing possible when {pronoun_1} {verb_2}?',
-        f'Is {verb_1}ing possible when {pronoun_2} {verb_2}s?'
+        f'Is {verb_1}ing possible when {pronoun_2} {verb_2}s?',
+        f'A {random.choice(adjectives)} {subject_1} is {verb_1}ing when the {subject_2} {verb_2}s.',
+        f'Is it {random.choice(adjectives)} to {verb_1}?'
     ]
 
     return render_template("index.html", sentence=random.choice(sentences))
