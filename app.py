@@ -20,15 +20,6 @@ nouns = word_list_from_file(os.path.join('data', 'nouns.csv'))
 verbs = word_list_from_file(os.path.join('data', 'verbs.csv'))
 adjectives = word_list_from_file(os.path.join('data', 'adjectives.csv'))
 
-#
-# with open(os.path.join('data', 'verbs.csv'), newline='') as f:
-#     reader = csv.reader(f)
-#     verbs = [v[0] for v in list(reader)]
-#
-# with open(os.path.join('data', 'adjectives.csv'), newline='') as f:
-#     reader = csv.reader(f)
-#     verbs = [v[0] for v in list(reader)]
-
 
 @app.route("/")
 def hello_world():
