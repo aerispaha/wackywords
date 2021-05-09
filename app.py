@@ -35,10 +35,10 @@ def hello_world():
         f'The {subject_1} {verb_1}s and the {subject_2} {verb_2}s.',
         f'Why does the {subject_1} {verb_1} while the {subject_2} {verb_2}s?',
         f'Can a {subject_1} {verb_1}?',
-        f'Is {verb_1}ing possible when {pronoun_1} {verb_2}?',
-        f'Is {verb_1}ing possible when {pronoun_2} {verb_2}s?',
+        f'Is {verb_1}ing {random.choice(adjectives)} when {pronoun_1} {verb_2}?',
+        f'Is {verb_1}ing {random.choice(adjectives)} when {pronoun_2} {verb_2}s?',
         f'A {random.choice(adjectives)} {subject_1} is {verb_1}ing when the {subject_2} {verb_2}s.',
-        f'Is it {random.choice(adjectives)} to {verb_1}?'
+        f'Is it {random.choice(adjectives)} to {verb_1}?',
     ]
 
     return render_template("index.html", sentence=random.choice(sentences))

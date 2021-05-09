@@ -9,17 +9,22 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&amp;family=Nunito+Sans&amp;display=swap" />
 </head>
-
+<script>
+  window.fitText( document.getElementById("main_sentence") );
+</script>
 <body>
-  {{ sentence }}
+
+  <h1 id="main_sentence">{{ sentence }}</h1>
 
   <style>
     body {
       text-align: center;
-      font-size: 5.5vw;
+      // font-size: 5.5vw;
       padding: 6vw 0 0 0;
     }
   </style>
+  <script src="{{ url_for('static', filename='js/fittext.js') }}"></script>
 </body>
+
 
 </html>
