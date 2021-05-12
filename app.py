@@ -52,6 +52,7 @@ def hello_world():
     words = [w.replace('sss', 'sses') if w.endswith('sss') else w for w in words]
     words = [w.replace('chs', 'ches') if w.endswith('chs') else w for w in words]
     words = [w.replace('eing', 'ing') if w.endswith('eing') else w for w in words]
+    words = [w.replace('zzs', 'zzes') if w.endswith('zzs') else w for w in words]
 
     sentence = ' '.join(words)
 
